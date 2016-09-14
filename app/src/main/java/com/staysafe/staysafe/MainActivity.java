@@ -120,6 +120,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 view.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
                 if (mCurrentLocation != null && TIMER_STATUS == RunningTypes.NOT_RUNNING){
                     locationText.setVisibility(View.VISIBLE);
+                    locationText.setText("...");
                     String url = "https://os.smartcommunitylab.it/core.geocoder/spring/location?latlng="+
                             mCurrentLocation.getLatitude()+","+mCurrentLocation.getLongitude()+"&rows=1";
                     JsonAsyncTask asyncTask = new JsonAsyncTask();
