@@ -1,0 +1,234 @@
+*{    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: 0;
+    border: none;
+    
+    font-size: 16px;
+
+}
+html,body{
+    height: 100%;
+    
+}
+.nav{
+    background-color: #ed1c24;
+    position:fixed;
+    width: 100%;
+    top:0px;
+    height:75px;
+    position:relative;
+    z-index: 9999;
+    box-shadow: 0px 3px 15px 4px rgba(0,0,0,0.25);
+    
+}
+.icon{
+    
+    background-image: url('icon/main-icon.svg');
+    background-repeat: no-repeat;
+    padding:20px;
+}
+.title{
+    top:4px;
+    right:650px;
+    font-size:3rem;
+    position:absolute;
+    line-height: 65px;
+    color:white;
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    margin-right: 0px;
+  
+}
+.sub-title{
+    position:absolute;
+    color:white;
+    font-family: 'Roboto', sans-serif;
+    bottom: 15px;
+    right:565px;
+}
+
+.main-emergency{
+    margin: 40px;
+    height: 100%;
+    display: flex;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+   
+}
+.clear{
+    clear: both;
+}
+#googleMap{
+    float:left;
+    width:600px;
+    height:400px;
+    margin-right: 40px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    flex:1;
+}
+
+#alert-info{
+    position:relative;
+    float:left;
+    right:10px;
+    height:400px;   
+    width:600px;
+    flex:1;
+
+}
+.left{
+    float:left;
+    margin-right:30px;
+}
+.info{
+
+    margin-bottom:10px;
+    font-size:1.3rem;
+    text-transform: capitalize;
+}
+.bold{
+    margin-left:200px;
+}
+.btnRemove{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:10px;
+    margin:auto;
+    cursor: pointer;
+    padding: 25px;
+    width:200px;
+    margin: 0 auto;
+    color:white;
+    border:2px solid #ed1c24;
+    background-color:#ed1c24;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 6px;
+}
+
+
+.selected{
+    padding:20px;  
+    height:100%;
+    
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.hide{
+    display: none;
+}
+
+
+
+/*SIDE SEARCH BAR*/
+.side-bar{
+    box-sizing: border-box;
+    text-align: center;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right:0;
+    background-color:white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.open-button{
+    position:absolute;
+    top:27px;
+    right:10px;
+    padding:15px;
+    margin-right:10px;
+    cursor: pointer;
+    background: url('icon/open-button-1.svg');
+    background-repeat: no-repeat;
+}
+.search{
+    width: 100%;
+    margin-top:100px;
+}
+.search-form{
+    width: 100%;
+    padding:15px;
+}
+.search-bar{
+    
+    width: 100%;
+    
+    /*border-radius:4px;*/
+    border-bottom:3px solid lightgrey;
+    /*box-shadow: 0px 3px 16px 2px lightgrey;*/
+    font-family: 'Roboto', sans-serif;
+}
+.search-bar:focus{
+    border-bottom:3px solid #ed1c24;
+
+}
+.side-submission{
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding:10px;
+    border: 1px solid #ed1c24;
+    background-color: #ed1c24;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.side-title{
+    position:absolute;
+    left:0;
+    right:0;
+    margin:auto;
+    color:#ed1c24;
+    top:30px;
+    font-family: 'Roboto', sans-serif;
+    font-size:2.3rem;
+}
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    color:#ed1c24;
+    border:none;
+
+}
+
+.circle-notification{
+    
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    position:relative;
+    width:100px;
+	height:100px;
+	border-radius:50px;
+	background:lightgrey;
+    margin:10px auto;
+    margin-top:0px;
+    
+    
+}
+
+.notification {
+    width: 30px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 2.5rem;
+}

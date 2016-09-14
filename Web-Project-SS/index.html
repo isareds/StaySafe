@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StaySafe</title>
+
+    <!--style -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700i" rel="stylesheet">
+    <title>Stay Safe</title>
+
+    <!-- firebase connection-->
+    <script src="https://www.gstatic.com/firebasejs/3.3.2/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="javascript.js" type="text/javascript"></script>
+
+    
+
+</head>
+<body>
+    <div class="nav">
+        
+        <h1 class="title">Stay Safe</h1>
+        <h2 class="sub-title">emergency</h2>
+        <span class="open-button" id="open-span"></span>
+        <div class="side-bar" id="mySides">
+            <h2 class="side-title">Search Info<h2>
+            
+            <div class="search">
+                <form action="searchScript()" class="search-form">
+                    <input type="text" class="search-bar">
+                    <input type="submit" class="side-submission" value="Search">
+                </form>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="main-emergency">
+            <div id="googleMap" class="clear"></div>
+            <div id="alert-info" class="clear">
+            
+            </div>
+        </div>
+        <div class="circle-notification">
+            <h1 class="notification" id="counter">0</h1>
+        </div>
+    </div>
+     <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmfEBM9epFOHJ1wYZO-F0Wo4LpTV9fZ3E&callback=initialize">
+    
+    </script>
+    
+
+</body>
+</html>
