@@ -29,7 +29,72 @@ var config = {
 firebase.initializeApp(config);
 
 $(document).ready(function(){
-	
+    $('#result').hide();
+  var main_url = "https://staysafe-2876c.firebaseio.com/accidents/";
+  
+
+  $('#submit-id').click(function(e){
+      e.preventDefault();
+      var res = $('#form-value').val();
+      var url=main_url+res+".json";
+      scriptSearch(url);
+
+      console.log(url);
+  });
+  
+function scriptSearch(res1){
+    /*JSON*/
+    
+    
+    
+    
+
+    $.getJSON(res1, function(data){
+        //$('#json').text(JSON.stringify(data,null,4))
+        if(data == null) {
+            $('#result').hide();
+            return;
+        } else{
+            $('#result').show();
+        }  
+
+
+        var str = JSON.stringify(data, undefined, 4);
+
+
+        output(syntaxHighlight(str));
+    });
+
+    function output(inp) {
+        $('#json').append(document.createElement('pre')).html(inp);
+    }
+
+    function syntaxHighlight(json) {
+        json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+        var cls = 'number';
+        if (/^"/.test(match)) {
+            if (/:$/.test(match)) {
+                cls = 'key';
+            } else {
+                cls = 'string';
+            }
+        } else if (/true|false/.test(match)) {
+            cls = 'boolean';
+        } else if (/null/.test(match)) {
+            cls = 'null';
+        }
+            return '<span class="' + cls + '">' + match + '</span>';
+        });
+    }
+}
+    
+
+    
+
+
+    
+	/*side bar animations*/
     $('#open-span').click(function(){
         $('.side-bar').css('width','400');
     });
@@ -37,7 +102,13 @@ $(document).ready(function(){
       $(".main-emergency").click(function(){
         $('.side-bar').width(0);
       });
-    
+
+    $('.search-form').focus(function(){
+        alert("ciao");
+        $('.side-title').slideUp('slow');
+    });
+
+
 	function updateField(uid){
 	
 		 var ref = firebase.database().ref();
@@ -64,8 +135,9 @@ $(document).ready(function(){
             $("#counter").text(global_notification_counter);
             var className = "hide"
             var selected = $('.selected');
-            if(selected === undefined || selected === null || selected.size() === 0 ){
+            if(selected === undefined || selected === null || selected.length === 0 ){
                 className = "selected";
+                firebase.database().ref().child('alert').child(key).update({'status':'processing'});
                 marker = new google.maps.Marker({
                     position: {lat: parseFloat(data.latitude), lng:parseFloat(data.longitude)},
                     map: map,
@@ -75,12 +147,13 @@ $(document).ready(function(){
             }
 
             $('#alert-info').append("<div id='"+ key + "' class='" + className+"' latitude="+data.latitude+" longitude="+data.longitude+">"+
-                    "<h3 class='info left'> User Id</h3>"+"<p class='info bold'>"+ key + "</p>"+
+                    "<h3 class='info left'> Alert ID</h3>"+"<p class='info bold'>"+ key + "</p>"+
                     "<h3 class='info left'> Latitude</h3>"+"<p class='info bold'>"+ data.latitude + "</p>"+
                     "<h3 class='info left'> Longitude</h3>"+"<p class='info bold'>" + data.longitude +"</p>"+
                     "<h3 class='info left'> Phone</h3>"+"<p class='info bold'>"+ data.phone +" </p> "+
-                    "<h3 class='info left'> Accident Type</h3>"+"<p class='info bold'>"+"Ciaone"+ data.type +"</p>" +   
+                    "<h3 class='info left'> Accident Type</h3>"+"<p class='info bold'>"+ data.type +"</p>" +   
                     "<h3 class='info left'> Status</h3>"+"<p class='info bold'>"+ data.status + "</p>" +
+                    "<h3 class='info left'> Time</h3>"+"<p class='info bold'>"+ new Date(data.timestamp) + "</p>" +
                     "<input type=\"button\" class=\"btnRemove\" id=\"" + key + "\" value=\"Send Ambulance\"/><br><br></div>");
 
             $('input#'+key).click(function(e){
@@ -96,7 +169,7 @@ $(document).ready(function(){
             marker.setMap(null);
             updateField(clickedKey);
 
-            if(nextElem === undefined || nextElem === null || nextElem.size() === 0 )
+            if(nextElem === undefined || nextElem === null || nextElem.length === 0 )
                 return;
 
             nextElem.addClass('selected');

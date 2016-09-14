@@ -152,6 +152,7 @@ html,body{
 .search{
     width: 100%;
     margin-top:100px;
+    padding:10px;
 }
 .search-form{
     width: 100%;
@@ -166,6 +167,21 @@ html,body{
     /*box-shadow: 0px 3px 16px 2px lightgrey;*/
     font-family: 'Roboto', sans-serif;
 }
+
+#result{
+    text-align: left;
+    margin:10px 30px;
+    padding:10px;
+    box-shadow: 0px 3px 16px 2px lightgrey;
+    border-radius:4px;
+
+}
+
+#json{
+    width:100%;
+}
+
+
 .search-bar:focus{
     border-bottom:3px solid #ed1c24;
 
@@ -192,6 +208,7 @@ html,body{
     font-family: 'Roboto', sans-serif;
     font-size:2.3rem;
 }
+
 .closebtn {
     position: absolute;
     top: 0;
@@ -232,3 +249,10 @@ html,body{
     line-height: 30px;
     font-size: 2.5rem;
 }
+
+/* JSON Color*/
+.string { color: green; }
+.number { color: darkorange; }
+.boolean { color: blue; }
+.null { color: magenta; }
+.key { color: red; }
