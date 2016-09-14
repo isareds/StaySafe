@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.staysafe.staysafe.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+
+    <FrameLayout
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:id="@+id/warning_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+        android:contentDescription="@string/alert_button_descr"
+        android:background="@drawable/background_normal"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_alert_phone_calling"
+        android:id="@+id/warning_image"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        app:layout_constraintTop_toTopOf="@+id/warning_background"
+        app:layout_constraintRight_toRightOf="@+id/warning_background"
+        app:layout_constraintBottom_toBottomOf="@+id/warning_background"
+        app:layout_constraintLeft_toLeftOf="@+id/warning_background"
+        android:visibility="invisible"/>
+
+    <TextView
+        android:text="!"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/warning_text"
+        app:layout_constraintRight_toRightOf="@+id/warning_background"
+        app:layout_constraintLeft_toLeftOf="@+id/warning_background"
+        app:layout_constraintBottom_toBottomOf="@+id/warning_background"
+        app:layout_constraintTop_toTopOf="@+id/warning_background"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:longClickable="true" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/accel_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="16dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/location_text"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="16dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:drawableLeft="@drawable/ic_place_black"
+        android:drawableStart="@drawable/ic_place_black"/>
+
+</android.support.constraint.ConstraintLayout>
